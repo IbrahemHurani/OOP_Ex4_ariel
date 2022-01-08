@@ -76,6 +76,7 @@ this class work like a main is run the code and in this class have the algorthim
 3.add all files jar to library.
 
 4.open Terminal in the intellij and write in the terminal ->java -jar Ex4_Server_v0.0.jar 0-15(you need to choose just one number).
+
 ![image](https://user-images.githubusercontent.com/86603326/148661381-ab93e3f6-4367-4d18-a069-794251830cc1.png)
 
 
