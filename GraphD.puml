@@ -1,0 +1,172 @@
+@startuml
+Graph..|>DirectedWeightedGraph
+Graph_Algorithms ..|>DirectedWeightedGraphAlgorithms
+class Graph_Algorithms{
+       graph
+      public void init(DirectedWeightedGraph g)
+       public DirectedWeightedGraph getGraph()
+       public DirectedWeightedGraph copy()
+       public boolean isConnected()
+       public double shortestPathDist(int src, int dest)
+        private int findMinNode()
+        public List<NodeData> shortestPath(int src, int dest)
+         public NodeData center()
+         public List<NodeData> tsp(List<NodeData> cities)
+         public boolean save(String file)
+         public boolean load(String file)
+
+}
+
+Graph--|>Graph_Algorithms
+Node..|>NodeData
+Node--|>Graph
+class Graph{
+  Nodes
+  Edges
+  size_of_edges
+  size_of_nodes
+  MC
+ public Graph()
+ public NodeData getNode(int key)
+ public EdgeData getEdge(int src, int dest)
+ public void addNode(NodeData n)
+ public void connect(int src, int dest, double w)
+ public Iterator<NodeData> nodeIter()
+ public Iterator<EdgeData> edgeIter()
+ public NodeData removeNode(int key)
+ public EdgeData removeEdge(int src, int dest)
+ public int nodeSize()
+ public int edgeSize()
+ public int getMC()
+
+
+}
+class Node{
+    key;
+    location;
+    weight;
+    info;
+    tag;
+    public Node(int id,GeoLocation geo)
+    public int getKey()
+    public GeoLocation getLocation()
+    public void setLocation(GeoLocation p)
+    public double getWeight()
+    public void setWeight(double w)
+    public String getInfo()
+    public void setInfo(String s)
+    public int getTag()
+    public void setTag(int t)
+
+}
+Edge..|>EdgeData
+Edge--|>Graph
+class Edge{
+int src;
+   int dest;
+   String info;
+    double weight;
+    int tag;
+    public Edge(int s,int d,double w)
+     public int getSrc()
+     public int getDest()
+     public double getWeight()
+      public String getInfo()
+       public void setInfo
+       public int getTag()
+       public void setTag
+
+
+
+}
+Glocation..|>GeoLocation
+Glocation--|>Node
+class Glocation{
+ private double x;
+    private double y;
+    private double z;
+     public Glocation(double x,double y,double z)
+     public Glocation(GeoLocation geo)
+      public double x()
+      public double y()
+       public double z()
+       public double distance(GeoLocation g)
+
+}
+Graph_Algorithms--|>GUI_graph
+Graph--|>Panel
+Panel--|>GUI_graph
+class Panel{
+ DirectedWeightedGraph graph;
+    private double minX;
+    private double minY;
+    private final int ARR_SIZE = 8;
+    private double maxX;
+    private double maxY;
+    ArrayList<Pokemon> pokemons=new ArrayList<>();
+    ArrayList<Agent> agent=new ArrayList<>();
+    Client client;
+    private double scaleX;
+    private double scaleY;
+    public Panel(DirectedWeightedGraph graph,Client c)
+    private void image()
+    private void MaxMinForXY()
+    public void paintComponent(Graphics g)
+    private void drawAgents(Graphics2D g)
+    private void drawPokemon(Graphics2D g)
+    private void drawTimer(Graphics g)
+    private void paintBackground(Graphics2D g2d)
+    private void drawGraph(Graphics g)
+    public void drawNode(Graphics g,NodeData node)
+    public void drawEdge(Graphics g,EdgeData edge)
+    private void drawScore(Graphics g)
+    void drawArrow(Graphics g1, int x1, int y1, int x2, int y2)
+}
+Pokemon--|>StudentCode
+Agent--|>StudentCode
+GUI_graph--|>StudentCode
+Client--|>StudentCode
+class Pokemon{
+private double value;
+    private int type;
+    private GeoLocation location;
+    private EdgeData edge;
+    private double distance;
+public Pokemon(double value, int type, GeoLocation pos)
+ public double getValue()
+ public void setValue(double value)
+  public void setDistance(double distance)
+    public double getDistance()
+    public int getType()
+     public void setType(int type)
+     public GeoLocation getLocation()
+     public void setLocation(GeoLocation Newlocation)
+     public EdgeData getEdge()
+     public void setEdge(EdgeData newEdge)
+}
+class Agent{
+ private int id;
+    private double value;
+    private int src;
+    private int dest;
+    private double speed;
+    private GeoLocation pos;
+    private boolean done;
+    public Agent(int id, double value, int source, int dest, double speed, Glocation pos)
+     public int getId()
+     public void setId(int id)
+     public boolean getdone()
+     public void setDone(boolean set)
+      public double getValue()
+       public void setValue(double value)
+        public int getSrc()
+        public void setSrc(int Newsrc)
+         public int getDest()
+         public void setDest(int dest)
+         public double getSpeed()
+         public void setSpeed(double speed)
+         public GeoLocation getPos()
+         public void setPos(Glocation pos)
+         public  static ArrayList<Agent> loadAgent(String file)
+}
+@enduml
