@@ -5,7 +5,7 @@
 
 3.add all files jar to library.
 
-4.open Terminal in the intellij and write in the terminal ->java -jar Ex4_Server_v0.0.jar 0-15(you need to put just one number).
+4.open Terminal in the intellij and write in the terminal ->java -jar Ex4_Server_v0.0.jar 0-15(you need to choose just one number).
 
 5.run the class StudentCode.
 
