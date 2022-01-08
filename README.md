@@ -6,7 +6,7 @@
 This assignment about directed weighted graph and on the edges there is a pokemon and agents and we bulid algorthim for agent to Catch the pokemon fast.
 # Algorithm:
 we take the classes for bulid the graph and all the algorithm for the graph from assignment 2 you can found more information  about the graph in my [Readme](https://github.com/IbrahemHurani/OOP_Ex2_ariel) there .
-and this assignment we We added 4 classes:
+and this assignment we added 4 classes:
 
 1.Class pokemon:
  this class have this variables:
