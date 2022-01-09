@@ -1,0 +1,76 @@
+@startuml
+DiGraph..|>GraphInterface
+GraphAlgo..|>GraphAlgoInterface
+class GraphAlgo{
+     graph
+    +def get_graph(self, g: GraphInterface )
+    +def load_from_json(file_name)
+   +def save_to_json(file_name)
+    +def shortest_path(self, id1: int, id2: int)
+    +def centerPoint(self) -> (int, float)
+    +def TSP(self, node_lst: List[int]) -> (List[int], float)
+    +def plot_graph(self) -> None
+}
+class main{
++def check():
++def check0():
++def check1():
++def check2():
++def check3():
+}
+DiGraph--|>main
+GraphAlgo--|>main
+class Node{
+   +id
+   +tag
+   +weight
+   +info
+   +pos
+}
+class DiGraph{
+  Nodes
+  Edges
+  size_of_edges
+  size_of_nodes
+  MC
+
++v_size(self) -> int:
++e_size(self) -> int:
++get_mc(self) -> int:
+ +def get_all_v(self) -> dict:
+ +def all_in_edges_of_node(self, id1: int) -> dict:
+ +def all_out_edges_of_node(self, id1: int) -> dict:
+ +def add_edge(self, id1: int, id2: int, weight: float) -> bool:
+ +def add_node(self, node_id: int, pos: tuple = None) -> bool:
+ +def remove_node(self, node_id: int) -> bool:
+ +def remove_edge(self, node_id1: int, node_id2: int) -> bool:
+ +def has_edge(self, id1, id2):
+}
+TestDiGraph..>DiGraph
+class TestDiGraph{
+Graph
+~def graph_creator():
+~def test_v_size(self):
+~def test_e_size(self):
+~def test_get_all_v(self):
+~def test_all_in_edges_of_node(self):
+~def test_all_out_edges_of_node(self):
+~def test_add_edge(self):
+~def test_add_node(self):
+~def test_remove_node(self):
+~def test_remove_edge(self):
+}
+TestGraphAlgo..>GraphAlgo
+class TestGraphAlgo{
+Graph
+~def graph_creator():
+~def test_get_graph(self):
+~def test_shortest_path(self):
+~def test_centerPoint(self):
+~def test_TSP(self):
+}
+GraphAlgo::graph *--> DiGraph
+DiGraph::Nodes*-->Node
+client--|>student_code
+GraphAlgo--|>student_code
+@enduml
