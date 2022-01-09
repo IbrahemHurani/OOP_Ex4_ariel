@@ -210,9 +210,9 @@ while client.is_running() == 'true':
                     path.append(k)
 
             for i in path:
-                next_node = i
+                next = i
                 client.choose_next_edge(
-                    '{"agent_id":' + str(agent.id) + ', "next_node_id":' + str(next_node) + '}')
+                    '{"agent_id":' + str(agent.id) + ', "next_node_id":' + str(next) + '}')
             ttl = client.time_to_end()
             print(ttl, client.get_info())
 
