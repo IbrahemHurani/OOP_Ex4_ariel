@@ -187,7 +187,7 @@ while client.is_running() == 'true':
             dest_x = my_scale(dest.pos.x, x=True)
             dest_y = my_scale(dest.pos.y, y=True)
 
-            # d2 must equal d2, and an epsilon range were compared for determenation.
+            
             d1 = (((((src_x - dest_x) ** 2) + ((src_y - dest_y) ** 2)) ** 0.5))
             d2 = (((((src_x - onePokemon.x) ** 2) + ((src_y - onePokemon.y) ** 2)) ** 0.5)) + (((((dest_x - onePokemon.x) ** 2) + ((dest_y - onePokemon.y) ** 2)) ** 0.5))
             dist=abs(d1-d2)/agent.speed
