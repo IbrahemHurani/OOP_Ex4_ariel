@@ -63,11 +63,7 @@ for agent in agents:
             print(ttl, client.get_info())
 
     client.move()
-
-
-
-
-
+ ```
 
 # How Run the code:
 1.install all the file form my github.
