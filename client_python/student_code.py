@@ -198,16 +198,17 @@ while client.is_running() == 'true':
 
     for agent in agents:
         if agent.dest == -1:
+            min=100000000
             path = []
             path.append(agent.src)
-
             for p in pokemons:
                 target = chooseNode(p.pos)
-                listPath = gAlgo.shortest_path(path[len(path) - 1], target[0])[1]
+                dist,listPath = gAlgo.shortest_path(path[len(path) - 1], target[0])
                 listPath.append(target[1])
-
-                for k in listPath:
-                    path.append(k)
+                if dist<min:
+                    min=dist
+                    for k in listPath:
+                        path.append(k)
 
             for i in path:
                 next_node = i
